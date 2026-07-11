@@ -1,3 +1,4 @@
+
 """
 Test script for document extraction functionality
 Creates sample files and tests extraction
