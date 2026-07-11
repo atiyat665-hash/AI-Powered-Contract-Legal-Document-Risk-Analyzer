@@ -130,6 +130,20 @@ st.markdown("""
         color: var(--text-primary);
     }
 
+    /* Streamlit's built-in JSON viewer (st.json) always renders on a
+       white background regardless of our dark theme. The global "span"
+       rule above was leaking light/white text color into it, making the
+       JSON content (raw analysis result) invisible. Force it back to a
+       readable dark-on-white look. */
+    [data-testid="stJson"] {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 6px 4px;
+    }
+    [data-testid="stJson"] * {
+        color: initial !important;
+    }
+
     /* Key terms (bold text) inside markdown lists - distinct font & color */
     .stMarkdown strong, .stMarkdown b {
         font-family: 'Poppins', sans-serif;
