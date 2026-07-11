@@ -195,6 +195,19 @@ st.markdown("""
         box-shadow: 0 0 0 1px var(--accent);
     }
 
+    /* Disabled/read-only text areas (e.g. "Extracted Text Preview") lose
+       contrast because browsers force their own low-contrast style on
+       disabled fields, overriding the rule above. Force it back. */
+    .stTextArea textarea:disabled,
+    .stTextArea textarea[disabled],
+    .stTextInput input:disabled,
+    .stTextInput input[disabled] {
+        background-color: #262e42 !important;
+        color: var(--text-primary) !important;
+        -webkit-text-fill-color: var(--text-primary) !important;
+        opacity: 1 !important;
+    }
+
     /* File uploader */
     section[data-testid="stFileUploaderDropzone"] {
         background-color: #262e42;
